@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beer Personality Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fef9e7;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #fdf3e6;
+            border-radius: 8px;
+            border: 1px solid #f3d5b5;
+        }
+        .question p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .options li {
+            margin: 10px 0;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            vertical-align: middle;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            text-align: center;
+        }
+        img {
+            width: 120px;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Quiz Page -->
+<div id="quizPage" class="container">
+    <h1>Beer Personality Test</h1>
+    <p class="subtitle">Discover the beer flavor that suits you best through this simple test!</p>
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <div class="question">
+            <p>1. Which beer flavor do you prefer?</p>
+            <ul class="options">
+                <li><input type="radio" name="q1" value="Plum"> Slightly sour and refreshing, with natural fruit aroma.</li>
+                <li><input type="radio" name="q1" value="Lemon"> Balanced sweet and sour, crisp and refreshing.</li>
+                <li><input type="radio" name="q1" value="Peach Oolong"> Mild and smooth, with a hint of floral and fruity aroma.</li>
+                <li><input type="radio" name="q1" value="Passion Fruit"> Sweet and rich, full of tropical fruit flavors.</li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p>2. In what situation do you usually drink beer?</p>
+            <ul class="options">
+                <li><input type="radio" name="q2" value="Peach Oolong"> Having a cozy drink at home with friends.</li>
+                <li><input type="radio" name="q2" value="Plum"> Camping or hiking outdoors, enjoying nature.</li>
+                <li><input type="radio" name="q2" value="Lemon"> At a beach party during the hot summer, to cool down.</li>
+                <li><input type="radio" name="q2" value="Passion Fruit"> At a night market or music festival, paired with food.</li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p>3. How often do you try new beer brands?</p>
+            <ul class="options">
+                <li><input type="radio" name="q3" value="Peach Oolong"> Rarely, I prefer familiar flavors and brands.</li>
+                <li><input type="radio" name="q3" value="Plum"> Occasionally, but I still like classic options.</li>
+                <li><input type="radio" name="q3" value="Lemon"> Frequently, I enjoy a variety of options.</li>
+                <li><input type="radio" name="q3" value="Passion Fruit"> Always looking for unique and interesting beers to try.</li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p>4. What role do you usually play at a party?</p>
+            <ul class="options">
+                <li><input type="radio" name="q4" value="Peach Oolong"> Observing quietly, joining the conversation at the right time.</li>
+                <li><input type="radio" name="q4" value="Plum"> The cheerful leader who sets the atmosphere.</li>
+                <li><input type="radio" name="q4" value="Lemon"> Relaxed and humorous, making occasional jokes.</li>
+                <li><input type="radio" name="q4" value="Passion Fruit"> Passionately introducing new and interesting things to everyone.</li>
+            </ul>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- Result Page -->
+<div id="resultPage" class="container" style="display:none;">
+    <h1>Your Beer Flavor</h1>
+    <p id="resultText"></p>
+    <img id="resultImage" src="" alt="Beer Image">
+    <button onclick="window.location.href = window.location.href;">Retake the Test</button>
+</div>
+
+<footer>© 2025 Beer Personality Test | Find Your Perfect Flavor</footer>
+
+<script>
+    document.getElementById("quizForm").onsubmit = function(event) {
+        event.preventDefault();
+
+        // Check if all questions are answered
+        var questions = ['q1', 'q2', 'q3', 'q4'];
+        for (var i = 0; i < questions.length; i++) {
+            if (!document.querySelector('input[name="' + questions[i] + '"]:checked')) {
+                alert("Please answer all the questions before submitting!");
+                return;
+            }
+        }
+
+        // Collect answers
+        var answers = {
+            q1: document.querySelector('input[name="q1"]:checked').value,
+            q2: document.querySelector('input[name="q2"]:checked').value,
+            q3: document.querySelector('input[name="q3"]:checked').value,
+            q4: document.querySelector('input[name="q4"]:checked').value
+        };
+
+        // Calculate results
+        var results = {};
+        for (var key in answers) {
+            var answer = answers[key];
+            results[answer] = (results[answer] || 0) + 1;
+        }
+
+        var maxResult = Object.keys(results).reduce((a, b) => results[a] > results[b] ? a : b);
+
+        // Show results
+        document.getElementById("quizPage").style.display = "none";
+        document.getElementById("resultPage").style.display = "block";
+
+        var resultText = '';
+        var resultImage = '';
+        switch (maxResult) {
+            case 'Plum':
+                resultText = 'You enjoy the slightly sour and refreshing plum flavor!';
+                resultImage = 'https://example.com/images/plum.png';
+                break;
+            case 'Lemon':
+                resultText = 'You love the balanced sweet and sour lemon flavor!';
+                resultImage = 'https://example.com/images/lemon.png';
+                break;
+            case 'Peach Oolong':
+                resultText = 'You prefer the mild and smooth peach oolong flavor!';
+                resultImage = 'https://example.com/images/peach-oolong.png';
+                break;
+            case 'Passion Fruit':
+                resultText = 'You enjoy the sweet and rich passion fruit flavor!';
+                resultImage = 'https://example.com/images/passion-fruit.png';
+                break;
+        }
+
+        document.getElementById("resultText").textContent = resultText;
+        document.getElementById("resultImage").src = resultImage;
+    };
+</script>
+
+</body>
+</html>
