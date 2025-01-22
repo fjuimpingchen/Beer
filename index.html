@@ -61,7 +61,7 @@
             display: block;
             width: 100%;
             padding: 15px;
-            background-color: #007BFF;
+            background-color: #F4A460;
             color: #fff;
             font-size: 18px;
             font-weight: bold;
@@ -71,7 +71,7 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #A0522D;
         }
         .result {
             text-align: center;
@@ -85,6 +85,12 @@
             margin-top: 30px;
             font-size: 14px;
             color: #888;
+        }
+        #resultPage {
+            text-align: center; /* 將內容置中 */
+        }
+        #resultImage {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -187,24 +193,29 @@
         document.getElementById("quizPage").style.display = "none";
         document.getElementById("resultPage").style.display = "block";
 
+        document.getElementById("resultImage").src = resultImage;
+        document.getElementById("resultImage").style.width = "500px"; // Example: Adjust the width
+        document.getElementById("resultImage").style.height = "auto"; // Maintain aspect ratio
+
+
         var resultText = '';
         var resultImage = '';
         switch (maxResult) {
             case 'Plum':
                 resultText = 'You enjoy the slightly sour and refreshing plum flavor!';
-                resultImage = 'https://example.com/images/plum.png';
+                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1670401871041-0EWQI6KM39CUR1ZIBMS0/02-re-202205改.jpg?format=2500w';
                 break;
             case 'Lemon':
                 resultText = 'You love the balanced sweet and sour lemon flavor!';
-                resultImage = 'https://example.com/images/lemon.png';
+                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1653301656513-CQ32ESEZJKHASBXVWIMW/產品卡01+-+複製2_工作區域+1+複本+7.png?format=2500w';
                 break;
             case 'Peach Oolong':
                 resultText = 'You prefer the mild and smooth peach oolong flavor!';
-                resultImage = 'https://example.com/images/peach-oolong.png';
+                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1729047200963-UIXRT118I28URE4Y7FQT/黑虎卡_產品、箱出_桃花滿烏_1015.png?format=2500w';
                 break;
             case 'Passion Fruit':
                 resultText = 'You enjoy the sweet and rich passion fruit flavor!';
-                resultImage = 'https://example.com/images/passion-fruit.png';
+                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1727412305609-M87HJ0LCV8AQ1IWTR6LZ/%E9%BB%91%E8%99%8E%E5%8D%A1_%E7%94%A2%E5%93%81%E3%80%81%E7%AE%B1%E5%87%BA_%E6%97%A5%E8%90%BD%E7%99%BE%E9%A6%99%E7%8B%97_0927.png?format=1500w';
                 break;
         }
 
