@@ -20,6 +20,13 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+        #headerImage {
+            display: block;
+            margin: 0 auto; /* 水平置中 */
+            width: 600px; /* 可調整圖片大小 */
+            height: auto; /* 保持圖片比例 */
+            margin-bottom: 10px; /* 與標題之間的間距 */
+        }
         h1 {
             text-align: center;
             color: #333;
@@ -98,6 +105,7 @@
 
 <!-- Quiz Page -->
 <div id="quizPage" class="container">
+    <img id="headerImage" src="TaihuLogo.jpg" alt="Header Image">
     <h1>Beer Personality Test</h1>
     <p class="subtitle">Discover the beer flavor that suits you best through this simple test!</p>
     <form id="quizForm">
@@ -202,20 +210,20 @@
         var resultImage = '';
         switch (maxResult) {
             case 'Plum':
-                resultText = 'You enjoy the slightly sour and refreshing plum flavor!';
-                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1670401871041-0EWQI6KM39CUR1ZIBMS0/02-re-202205改.jpg?format=2500w';
+                resultText = 'You enjoy the GREEN PLUM flavor!';
+                resultImage = '/Users/pingchen/Downloads/Beer/GreenPlum.png';
                 break;
             case 'Lemon':
-                resultText = 'You love the balanced sweet and sour lemon flavor!';
-                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1653301656513-CQ32ESEZJKHASBXVWIMW/產品卡01+-+複製2_工作區域+1+複本+7.png?format=2500w';
+                resultText = 'You love the LONG ISLAND ICED BEER flavor!';
+                resultImage = '/Users/pingchen/Downloads/Beer/LongIslandIcedBeer.png';
                 break;
             case 'Peach Oolong':
-                resultText = 'You prefer the mild and smooth peach oolong flavor!';
-                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1729047200963-UIXRT118I28URE4Y7FQT/黑虎卡_產品、箱出_桃花滿烏_1015.png?format=2500w';
+                resultText = 'You prefer the PEACH BLOSSOM OOLONG flavor!';
+                resultImage = 'PeachBlossomOolong.png';
                 break;
             case 'Passion Fruit':
-                resultText = 'You enjoy the sweet and rich passion fruit flavor!';
-                resultImage = 'https://images.squarespace-cdn.com/content/v1/576943e629687f39ee974923/1727412305609-M87HJ0LCV8AQ1IWTR6LZ/%E9%BB%91%E8%99%8E%E5%8D%A1_%E7%94%A2%E5%93%81%E3%80%81%E7%AE%B1%E5%87%BA_%E6%97%A5%E8%90%BD%E7%99%BE%E9%A6%99%E7%8B%97_0927.png?format=1500w';
+                resultText = 'You enjoy the TAIHU PASSION FRUIT SUNSET flavor!';
+                resultImage = 'PassionFruitSunset.png';
                 break;
         }
 
