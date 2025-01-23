@@ -84,7 +84,8 @@
             text-align: center;
         }
         img {
-            width: 120px;
+            max-width: 100%;
+            height: auto;
             margin-top: 20px;
         }
         footer {
@@ -93,12 +94,30 @@
             font-size: 14px;
             color: #888;
         }
-        #resultPage {
+         #resultPage {
             text-align: center; /* 將內容置中 */
         }
+
         #resultImage {
             margin-top: 20px;
         }
+
+        
+        /*#resultPage {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 水平置中 */
+            justify-content: center; /* 垂直置中 */
+            text-align: center;
+            min-height: 100vh; /* 滿屏顯示 */
+        }*/
+
+        /*.options {
+            display: flex;
+            flex-direction: column; /* 垂直排列選項 */
+            gap: 10px; /* 增加選項間的距離 */
+        }*/
+        
     </style>
 </head>
 <body>
